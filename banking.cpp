@@ -664,6 +664,20 @@ public:
     }
 
 
+/*****************************************************************************************************************************
+    Module Name: Acccount Balance Accessor(Getter) Function 
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For getting Acccount Balance
+    Description: Gets Acccount Balance / Returns Acccount Balance when the function is called
+        @param: None
+        @return Acccount Balance of double data type is returned
+*****************************************************************************************************************************/
+    double get_balance()
+    {
+        ///assigns current value in pointer object to the balance variable
+        return this->balance;
+    }
 
 
 
