@@ -695,6 +695,19 @@ public:
     }
 
 
+/*****************************************************************************************************************************
+    Module Name: Adult Account Type Accessor(Getter) Function 
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For getting Adult Acccount Type, if Adult - Customer Type is chosen
+    Description: Gets Adult Acccount Type / Returns Adult Acccount Type when the function is called
+        @param: None
+        @return Acccount Type Adult: object of Class Adult is returned
+*****************************************************************************************************************************/
+    Adult getAdult()
+    {
+        return this->adult;
+    }
 
 
 
