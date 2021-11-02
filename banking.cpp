@@ -351,6 +351,34 @@ Description: Gets Customer's Type - Adult / Returns Customer's Type as Adult whe
 };
 
 
+/*****************************************************************************************************************************
+    Module Name: Student Class which is a subclass derived from super Class Customer
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For initializing data members
+    Description: 
+    To declare & initialize savings account's interest, checking's account interest, Cheque Charges and overdraft penalty charges
+    To get customer name, address, age, telephone number and customer type number from Student class, which is derived from Customer super class 
+*****************************************************************************************************************************/
+class Student : public Customer
+{
+public:
+    ///To declare & initialize savings account's interest as constant float: constexpr is a compile-time constant. It initializes SAVINGS_INTEREST at compile time.
+    static constexpr float SAVINGS_INTEREST = 0.01f; 
+
+    ///To declare & initialize checkings account's interest as constant float constexpr is a compile-time constant. It initializes CHECK_INTEREST at compile time.
+    static constexpr float CHECK_INTEREST = 0.005f;
+
+    ///To declare & initialize checkings account's interest as constant float constexpr is a compile-time constant. It initializes CHECK_CHARGE at compile time.
+    static constexpr float CHECK_CHARGE = 0.001f;
+
+    ///To declare & initialize overdraft penalty as constant float as constant float constexpr is a compile-time constant. It initializes OVERDRAFT_PENALTY at compile time.
+    static constexpr float OVERDRAFT_PENALTY = 0.001f;
+
+    ///Default Constrcutor of Student Class
+    Student()
+    {
+    }
 
 
 
