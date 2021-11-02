@@ -710,6 +710,19 @@ public:
     }
 
 
+/*****************************************************************************************************************************
+    Module Name: Student Account Type Accessor(Getter) Function 
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For getting Student Acccount Type, if Student - Customer Type is chosen
+    Description: Gets Student Acccount Type / Returns Student Acccount Type when the function is called
+        @param: None
+        @return Acccount Type Student: object of Class Student is returned
+*****************************************************************************************************************************/
+    Student getStudent()
+    {
+        return this->student;
+    }
 
 
 
