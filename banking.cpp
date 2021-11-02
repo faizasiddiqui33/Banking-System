@@ -261,6 +261,21 @@ public:
     Senior() {}
 
 
+/*****************************************************************************************************************************
+    Module Name: Senior Class Constructor
+    Purpose: For passing data members as arguments when an object of Senior class is created
+    Description: Constructor of Class Senior
+    @param name: for passing customer's name as string data type
+    @param address: for passing customer's address as string data type
+    @param age: for passing customer's age as short data type. It will most likely be between 0-100
+    @param telephone_number: for passing telephone number of customer as long long data type of 64 bits
+    @param customer_number: for passing Customer Type in the form of number 1-for Senior, 2-for Adult, 3-for Student
+*****************************************************************************************************************************/
+    Senior(string name, string address, short age, long long telephone_number, int customer_number) : Customer(name, address, age, telephone_number, customer_number)
+    {
+    }
+
+
 
 
 /********MAIN MAIN MAIN***************/
