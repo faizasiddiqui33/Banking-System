@@ -600,7 +600,20 @@ public:
     }
 
 
-}
+/*****************************************************************************************************************************
+    Module Name: Setter Function for setting Customer Type - Student 
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For Setting Student Customer
+    Description: For Setting Student Customer current value in pointer object (if not initialized by Constructor)
+    @param customer: an object of Student Class for passing Student customer details
+    @return null
+*****************************************************************************************************************************/
+    void setStudent(Student customer)
+    {
+        ///assigns the value of current object to Customer Type - Student
+        this->student = customer;
+    }
 
 
 
