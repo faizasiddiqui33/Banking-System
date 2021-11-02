@@ -45,15 +45,14 @@ public:
     //Default Constructor:
     Customer() {}
 
-
 /*****************************************************************************************************************************
-Module Name: Customer Class Constructor
-Description: Customer Class Constructor that intializes members for setting the values of data fields to the current value in pointer object
-    @param name: for passing customer's name as string data type
-    @param address: for passing customer's address as string data type
-    @param age: for passing customer's age as short data type. It will most likely be between 0-100
-    @param telephone_number: for passing telephone number of customer as long long data type of 64 bits
-    @param customer_number: for passing Customer Type in the form of number 1-for Senior, 2-for Adult, 3-for Student
+    Module Name: Customer Class Constructor
+    Description: Customer Class Constructor that intializes members for setting the values of data fields to the current value in pointer object
+        @param name: for passing customer's name as string data type
+        @param address: for passing customer's address as string data type
+        @param age: for passing customer's age as short data type. It will most likely be between 0-100
+        @param telephone_number: for passing telephone number of customer as long long data type of 64 bits
+        @param customer_number: for passing Customer Type in the form of number 1-for Senior, 2-for Adult, 3-for Student
 *****************************************************************************************************************************/
     Customer(string name, string address, short age, long long telephone_number, int customer_number)
     {
@@ -67,34 +66,33 @@ Description: Customer Class Constructor that intializes members for setting the 
         this->telephone_number = telephone_number;
         ///pointer value of current object get assigned with customer type number
         this->customer_number = customer_number;
-    }
+     }
 
 
 /*****************************************************************************************************************************
-Module Name: Setter Function for setting Customer's Name
-Author: Faiza Fatma Siddiqui
-Date Created/Modified: 01.11.2021
-Purpose: For setting Customer's Name
-Description: Set customer's name to the current value in pointer object (if not initialized by Constructor)
-    @param name: for passing customer's name as string data type
-    @return null
+    Module Name: Setter Function for setting Customer's Name
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For setting Customer's Name
+    Description: Set customer's name to the current value in pointer object (if not initialized by Constructor)
+        @param name: for passing customer's name as string data type
+        @return null
 *****************************************************************************************************************************/
     void setName(string name)
     {
         ///pointer value of current object get assigned with customer name
         this->name = name;
-    }
-
+    }   
 
 
 /*****************************************************************************************************************************
-Module Name: Setter Function for setting Customer's Address
-Author: Faiza Fatma Siddiqui
-Date Created/Modified: 01.11.2021
-Purpose: For setting Customer's Address
-Description: Set customer's address to the current value in pointer object 
-    @param address: for passing customer's address as string data type
-    @return null
+    Module Name: Setter Function for setting Customer's Address
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For setting Customer's Address
+    Description: Set customer's address to the current value in pointer object 
+        @param address: for passing customer's address as string data type
+        @return null
 *****************************************************************************************************************************/
     void setAddress(string address)
     {
@@ -104,13 +102,13 @@ Description: Set customer's address to the current value in pointer object
 
 
 /*****************************************************************************************************************************
-Module Name: Setter Function for Setting Customer's Age
-Author: Faiza Fatma Siddiqui
-Date Created/Modified: 01.11.2021
-Purpose: For setting Customer's Age
-Description: Sets customer's age to the current value in pointer object
-    @param address: for passing Customer's Age as short data type because it will be most likely between 0-100
-    @return null
+    Module Name: Setter Function for Setting Customer's Age
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For setting Customer's Age
+    Description: Sets customer's age to the current value in pointer object
+        @param address: for passing Customer's Age as short data type because it will be most likely between 0-100
+        @return null
 *****************************************************************************************************************************/
     void setAge(short age)
     {
@@ -120,13 +118,13 @@ Description: Sets customer's age to the current value in pointer object
 
 
 /*****************************************************************************************************************************
-Module Name: Setter Function for setting Customer's Telephone Number
-Author: Faiza Fatma Siddiqui
-Date Created/Modified: 01.11.2021
-Purpose: For setting Customer's Telephone Number
-Description: Set customer's telephone number to the current value in pointer object 
-    @param telephone_number: for passing Customer Telephone Number as long long data type for 64 bits
-    @return null
+    Module Name: Setter Function for setting Customer's Telephone Number
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For setting Customer's Telephone Number
+    Description: Set customer's telephone number to the current value in pointer object 
+        @param telephone_number: for passing Customer's Telephone Number as long long data type for 64 bits
+        @return null
 *****************************************************************************************************************************/
     void setTelephoneNumber(long long telephone_number)
     {
@@ -136,13 +134,13 @@ Description: Set customer's telephone number to the current value in pointer obj
 
 
 /*****************************************************************************************************************************
-Module Name: Setter Function for setting Customer's Type Number
-Author: Faiza Fatma Siddiqui
-Date Created/Modified: 01.11.2021
-Purpose: For setting Customer's Type Number
-Description: Set Customer Type Number to the current value in pointer object if not initialized by Constructor
-    @param customer_number: For passing Customer Type Number as integer data type: 1-Senior, 2-Adult, 3-Adult
-    @return null
+    Module Name: Setter Function for setting Customer's Type Number
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For setting Customer's Type Number
+    Description: Set Customer Type Number to the current value in pointer object if not initialized by Constructor
+        @param customer_number: For passing Customer Type Number as integer data type: 1-Senior, 2-Adult, 3-Adult
+        @return null
 *****************************************************************************************************************************/
     void setCustomerNumber(int customer_number)
     {
@@ -152,13 +150,13 @@ Description: Set Customer Type Number to the current value in pointer object if 
 
 
 /*****************************************************************************************************************************
-Module Name: Accessor(Getter) Function for getting Customer's Name
-Author: Faiza Fatma Siddiqui
-Date Created/Modified: 01.11.2021
-Purpose: For getting Customer's Name
-Description: Gets Customer's name / Returns Customer's name when the function is called
-    @param: None
-    @return Customer name of string data type is returned
+    Module Name: Customer Name Accessor(Getter) Function 
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For getting Customer's Name
+    Description: Gets Customer's name / Returns Customer's name when the function is called
+        @param: None
+        @return Customer name of string data type is returned
 *****************************************************************************************************************************/
     string get_customer()
     {
@@ -168,13 +166,13 @@ Description: Gets Customer's name / Returns Customer's name when the function is
 
 
 /*****************************************************************************************************************************
-Module Name: Accessor(Getter) Function for getting Customer's Address
-Author: Faiza Fatma Siddiqui
-Date Created/Modified: 01.11.2021
-Purpose: For getting Customer's Address
-Description: Gets Customer's Address / Returns Customer's address when the function is called
-    @param: None
-    @return Customer address of string data type is returned
+    Module Name: Customer Address Accessor(Getter) Function
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For getting Customer's Address
+    Description: Gets Customer's Address / Returns Customer's address when the function is called
+        @param: None
+        @return Customer address of string data type is returned
 *****************************************************************************************************************************/
     string getAddress()
     {
@@ -184,13 +182,13 @@ Description: Gets Customer's Address / Returns Customer's address when the funct
 
 
 /*****************************************************************************************************************************
-Module Name: Accessor(Getter) Function for getting Customer's Age
-Author: Faiza Fatma Siddiqui
-Date Created/Modified: 01.11.2021
-Purpose: For getting Customer's Age
-Description: Gets Customer's Age / Returns Customer's age when the function is called
-    @param: None
-    @return Customer age of short data type is returned
+    Module Name: Customer's Age Accessor(Getter) Function
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For getting Customer's Age
+    Description: Gets Customer's Age / Returns Customer's age when the function is called
+        @param: None
+        @return Customer age of short data type is returned
 *****************************************************************************************************************************/
     short getAge()
     {
@@ -200,13 +198,13 @@ Description: Gets Customer's Age / Returns Customer's age when the function is c
 
 
 /*****************************************************************************************************************************
-Module Name: Accessor(Getter) Function for Customer's Telephone Number
-Author: Faiza Fatma Siddiqui
-Date Created/Modified: 01.11.2021
-Purpose: For getting Customer's Telephone Number
-Description: Gets Customer's Telephone Number / Returns Customer's Telephone Number when the function is called
-    @param: None
-    @return Customer Telephone Number of long long data type of 64 bits is returned
+    Module Name: Customer's Telephone Number Accessor(Getter) Function
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For getting Customer's Telephone Number
+    Description: Gets Customer's Telephone Number / Returns Customer's Telephone Number when the function is called
+        @param: None
+        @return Customer Telephone Number of long long data type of 64 bits is returned
 *****************************************************************************************************************************/
     long long getTelephoneNumber()
     {
@@ -216,13 +214,13 @@ Description: Gets Customer's Telephone Number / Returns Customer's Telephone Num
 
 
 /*****************************************************************************************************************************
-Module Name: Accessor(Getter) Function for getting Customer's Type Number
-Author: Faiza Fatma Siddiqui
-Date Created/Modified: 01.11.2021
-Purpose: For getting Customer's Type Number
-Description: Gets Customer's Type Number / Returns Customer's Type Number when the function is called
-    @param: None
-    @return Customer's Type Number of string data type is returned
+    Module Name: Customer's Type Number Accessor(Getter) Function
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For getting Customer's Type Number
+    Description: Gets Customer's Type Number / Returns Customer's Type Number when the function is called
+        @param: None
+        @return Customer's Type Number of string data type is returned
 *****************************************************************************************************************************/
     int getCustomerNumber()
     {
@@ -233,43 +231,42 @@ Description: Gets Customer's Type Number / Returns Customer's Type Number when t
 
 
 /*****************************************************************************************************************************
-Module Name: Senior Class which is a subclass derived from super Class Customer
-Author: Faiza Fatma Siddiqui
-Date Created/Modified: 01.11.2021
-Purpose: for initializing data members
-Description: 
-To declare & initialize savings account's interest, checking's account interest, Cheque Charges and overdraft penalty charges
-To get customer name, address, age, telephone number and customer type number from Senior class, which is derived from Customer super class 
+    Module Name: Senior Class which is a subclass derived from super Class Customer
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For initializing data members
+    Description: 
+    To declare & initialize savings account's interest, checking's account interest, Cheque Charges and overdraft penalty charges
+    To get customer name, address, age, telephone number and customer type number from Senior class, which is derived from Customer super class 
 *****************************************************************************************************************************/
 class Senior : public Customer
 {
     ///public section of Senior Class
 public:
-    ///To declare & initialize savings account's interest as constant float 
+    ///To declare & initialize savings account's interest price and set it as constant float: constexpr is a compile-time constant. It initializes SAVINGS_INTEREST at compile time.
     static constexpr float SAVINGS_INTEREST = 0.1;
 
-    ///To declare & initialize checkings account's interest as constant float 
+    ///To declare & initialize checkings account's interest price and set it as constant float: constexpr is a compile-time constant. It initializes CHECK_INTEREST at compile time.
     static constexpr float CHECK_INTEREST = 0.05;
 
-    ///To declare & initialize Cheque Charges as constant float 
+    ///To declare & initialize Cheque Charges and set it as constant float: constexpr is a compile-time constant. It initializes CHECK_CHARGE at compile time.
     static constexpr float CHECK_CHARGE = 0.01;
 
-    ///To declare & initialize Overdraft penalty as constant float 
+    ///To declare & initialize Overdraft penalty as constant float: constexpr is a compile-time constant. It initializes OVERDRAFT_PENALTY at compile time.
     static constexpr float OVERDRAFT_PENALTY = 0.001;
 
     ///Senior Class Default Constructor
     Senior() {}
 
-
 /*****************************************************************************************************************************
     Module Name: Senior Class Constructor
     Purpose: For passing data members as arguments when an object of Senior class is created
     Description: Constructor of Class Senior
-    @param name: for passing customer's name as string data type
-    @param address: for passing customer's address as string data type
-    @param age: for passing customer's age as short data type. It will most likely be between 0-100
-    @param telephone_number: for passing telephone number of customer as long long data type of 64 bits
-    @param customer_number: for passing Customer Type in the form of number 1-for Senior, 2-for Adult, 3-for Student
+        @param name: for passing customer's name as string data type
+        @param address: for passing customer's address as string data type
+        @param age: for passing customer's age as short data type. It will most likely be between 0-100
+        @param telephone_number: for passing telephone number of customer as long long data type of 64 bits
+        @param customer_number: for passing Customer Type in the form of number 1-for Senior, 2-for Adult, 3-for Student
 *****************************************************************************************************************************/
     Senior(string name, string address, short age, long long telephone_number, int customer_number) : Customer(name, address, age, telephone_number, customer_number)
     {
@@ -280,10 +277,10 @@ public:
     Module Name: Accessor(Getter) Function for getting Customer's Type for Senior Customer
     Author: Faiza Fatma Siddiqui
     Date Created/Modified: 01.11.2021
-    Purpose: For passing Customer Type in the form of number 1-for Senior, 2-for Adult, 3-for Student
+    Purpose: For passing Customer Type in the form of string "Senior"
     Description: Gets Customer's Type - Senior / Returns Customer's Type as Senior when the function is called
-    @param: None
-    @return Customer Type Number of string data type is returned
+        @param: None
+        @return Customer Type Number as Senior of string data type is returned
 *****************************************************************************************************************************/
     string type()
     {
@@ -305,16 +302,16 @@ public:
 class Adult : public Customer
 {
 public:
-    ///To declare & initialize savings account's interest as constant float: constexpr is a compile-time constant. It initializes SAVINGS_INTEREST at compile time.
+    ///To declare & initialize savings account's interest and set it as constant float: constexpr is a compile-time constant. It initializes SAVINGS_INTEREST at compile time.
     static constexpr float SAVINGS_INTEREST = 0.2;
 
-    ///To declare & initialize checkings account's interest as constant float constexpr is a compile-time constant. It initializes CHECK_INTEREST at compile time.
+    ///To declare & initialize checkings account's interest and set it as constant float constexpr is a compile-time constant. It initializes CHECK_INTEREST at compile time.
     static constexpr float CHECK_INTEREST = 0.02;
 
-    ///To declare & initialize checkings account's interest as constant float constexpr is a compile-time constant. It initializes CHECK_CHARGE at compile time.
+    ///To declare & initialize checkings account's interest and set it as constant float constexpr is a compile-time constant. It initializes CHECK_CHARGE at compile time.
     static constexpr float CHECK_CHARGE = 0.05;
 
-    ///To declare & initialize overdraft penalty as constant float as constant float constexpr is a compile-time constant. It initializes OVERDRAFT_PENALTY at compile time.
+    ///To declare & initialize overdraft penalty and set it as constant float as constant float constexpr is a compile-time constant. It initializes OVERDRAFT_PENALTY at compile time.
     static constexpr float OVERDRAFT_PENALTY = 0.001;
 
     ///Default Constructor of Adult Class
@@ -324,11 +321,11 @@ public:
     Module Name: Adult Class Constructor
     Purpose: For passing data members as arguments when an object of Adult class is created
     Description: Constructor of Class Adult
-    @param name: for passing customer's name as string data type
-    @param address: for passing customer's address as string data type
-    @param age: for passing customer's age as short data type. It will most likely be between 0-100
-    @param telephone_number: for passing telephone number of customer as long long data type of 64 bits
-    @param customer_number: for passing Customer Type in the form of number 1-for Senior, 2-for Adult, 3-for Student
+        @param name: for passing customer's name as string data type
+        @param address: for passing customer's address as string data type
+        @param age: for passing customer's age as short data type. It will most likely be between 0-100
+        @param telephone_number: for passing telephone number of customer as long long data type of 64 bits
+        @param customer_number: for passing Customer Type in the form of number 1-for Senior, 2-for Adult, 3-for Student
 *****************************************************************************************************************************/
     Adult(string name, string address, short age, long long telephone_number, int customer_number) : Customer(name, address, age, telephone_number, customer_number)
     {
@@ -336,16 +333,17 @@ public:
 
 
 /*****************************************************************************************************************************
-Module Name: Accessor(Getter) Function for getting Customer's Type for Adult Customer
-Author: Faiza Fatma Siddiqui
-Date Created/Modified: 01.11.2021
-Purpose: For passing Customer Type in the form of number 1-for Senior, 2-for Adult, 3-for Student
-Description: Gets Customer's Type - Adult / Returns Customer's Type as Adult when the function is called
-    @param: None
-    @return Customer Type Number which will be '2' for Adult: string data type is returned
+    Module Name: Accessor(Getter) Function for getting Customer's Type for Adult Customer
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For passing Customer Type in the form of number 1-for Senior, 2-for Adult, 3-for Student
+    Description: Gets Customer's Type - Adult / Returns Customer's Type as Adult when the function is called
+        @param: None
+        @return Customer Type "Adult": string data type is returned
 *****************************************************************************************************************************/
     string type()
     {
+        ///Returns Customer's Type as Adult when the function is called
         return "ADULT\n";
     }
 };
@@ -375,51 +373,49 @@ public:
     ///To declare & initialize overdraft penalty as constant float as constant float constexpr is a compile-time constant. It initializes OVERDRAFT_PENALTY at compile time.
     static constexpr float OVERDRAFT_PENALTY = 0.001f;
 
-    ///Default Constrcutor of Student Class
+    ///Default Constructor of Student Class
     Student()
     {
     }
-
 
 /*****************************************************************************************************************************
     Module Name: Student Class Constructor
     Purpose: For passing data members as arguments when an object of Student class is created
     Description: Constructor of Class Student
-    @param name: for passing customer's name as string data type
-    @param address: for passing customer's address as string data type
-    @param age: for passing customer's age as short data type. It will most likely be between 0-100
-    @param telephone_number: for passing telephone number of customer as long long data type of 64 bits
-    @param customer_number: for passing Customer Type in the form of number 1-for Senior, 2-for Adult, 3-for Student
+        @param name: for passing customer's name as string data type
+        @param address: for passing customer's address as string data type
+        @param age: for passing customer's age as short data type. It will most likely be between 0-100
+        @param telephone_number: for passing telephone number of customer as long long data type of 64 bits
+        @param customer_number: for passing Customer Type in the form of number 1-for Senior, 2-for Adult, 3-for Student
 *****************************************************************************************************************************/
     Student(string name, string address, short age, long long telephone_number, int customer_number) : Customer(name, address, age, telephone_number, customer_number)
     {
     }
 
-
 /*****************************************************************************************************************************
-    Module Name: Accessor(Getter) Function for getting Customer's Type for Adult Customer
+    Module Name: Accessor(Getter) Function for getting Customer's Type for Student Customer
     Author: Faiza Fatma Siddiqui
     Date Created/Modified: 01.11.2021
-    Purpose: For passing Customer Type in the form of number 1-for Senior, 2-for Adult, 3-for Student
-    Description: Gets Customer's Type - Adult / Returns Customer's Type as Adult when the function is called
+    Purpose: For passing Customer Type in the form of string for "Student" type of Customer
+    Description: Gets Customer's Type - Student / Returns Customer's Type as Student when the function is called
     @param: None
-    @return Customer Type Number which will be '2' for Adult: string data type is returned
+    @return Customer Type Number "Student" string data type is returned
 *****************************************************************************************************************************/
     string type()
     {
+        ///Returns Customer's Type as Student when the function is called
         return "STUDENT\n";
     }
 };
 //Customer Details End:
 
 
-//Transaction Details:
 /*****************************************************************************************************************************
-Module Name: Transaction Class
-Author: Faiza Fatma Siddiqui
-Date Created/Modified: 01.11.2021
-Purpose: For Fetching Transaction Details
-Description: To process Transactions and declare variables needed for transaction
+    Module Name: Class Transaction
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For Fetching Transaction Details
+    Description: To process Transactions and declare variables needed for transaction
 *****************************************************************************************************************************/
 class Transaction
 {
@@ -443,16 +439,18 @@ public:
     ///to store the fees of cheque or overpenalty
     float fees = 0;
     
+
 /*****************************************************************************************************************************
-    Module Name: Changing input variables to string
+    Module Name: Printing Transaction Details Function
     Author: Faiza Fatma Siddiqui
     Date Created/Modified: 01.11.2021
-    Purpose: For Printing Transaction Details
+    Purpose: Printing Transaction Details
     Description: To Print Transaction Details in a well-formatted fashion
 *****************************************************************************************************************************/
     void to_string()
     {
-        cout << "\n"
+        cout << "\n";
+        ///To Print Transaction Details in a well-formatted fashion: Transaction Type, Date followed by Amount
         cout << "\t\t" << this->transaction_type << "\t" << this->date << "\t$" << this->amount << "\t" << endl;
     }
 
@@ -466,6 +464,7 @@ public:
 *****************************************************************************************************************************/
     void processTransactio(string transaction_type, double amount, string date, float fees, double balance)
     {
+        ///returns the pointer value of current object that is transaction amount, fees of charge if any, data of transaction, type of transaction, current balance amount
         this->amount = amount;
         this->fees = fees;
         this->date = date;
@@ -476,11 +475,11 @@ public:
 
 
 /*****************************************************************************************************************************
-Module Name: Class Account
-Author: Faiza Fatma Siddiqui
-Date Created/Modified: 01.11.2021
-Purpose: For getting and setting Account Details
-Description: For getting and setting Account Details
+    Module Name: Class Account
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For performing all operations on Accounts like getting and setting of account's details
+    Description: For getting and setting Account Details
 *****************************************************************************************************************************/
 class Account
 {
@@ -514,50 +513,74 @@ public:
     /// Customer Type Defines what type of customner is passed i.e Senoir , Adult or Student
     int customerType; 
 
+
 /*****************************************************************************************************************************
-    Module Name: Setter Function for setting Customer's Name
+    Module Name: Create Account Function
     Author: Faiza Fatma Siddiqui
     Date Created/Modified: 01.11.2021
-    Purpose: Setting Class Members:
-    Description: Set customer's name to the current value in pointer object (if not initialized by Constructor)
-    @param name: for passing customer's name as string data type
+    Purpose: Function called when account is to be created to store the account number, balance and customer name
+    Description: Takes input from user and saves it from the current value in pointer object in the required variable names (if not initialized by Constructor)
+    @param account_number: for passing and saving account number as integer data type
+    @param balance: for passing and saving account balance as double data type
+    @param customer: for passing and saving customer details as Customer class object
     @return null
 *****************************************************************************************************************************/
     void createAccount(int account_number, double balance, Customer customer)
     {
+        ///returns the pointer value of current object that is account number, balance amount, and customer details
         this->account_number = account_number;
         this->balance = balance;
         this->customer = customer;
     }
 
+
 /*****************************************************************************************************************************
-    Module Name: Setter Function for setting Customer's Name
+    Module Name: Customer's Account Number - Setter Function 
     Author: Faiza Fatma Siddiqui
     Date Created/Modified: 01.11.2021
-    Purpose: CS 700 - Software Development Fundamentals - Assignment 3
-    Description: Set customer's name to the current value in pointer object (if not initialized by Constructor)
-        @param name: for passing customer's name as string data type
+    Purpose: For setting Customer's Account Number
+    Description: Set customer's Account Number to the current value in pointer object (if not initialized by Constructor)
+        @param account_number: for passing customer's Account Number as integer data type
         @return null
 *****************************************************************************************************************************/
     void setAccountNumber(int account_number)
     {
+        ///assigns the value of current object to account_number variable
         this->account_number = account_number;
     }
 
+
 /*****************************************************************************************************************************
-    Module Name: Setter Function for setting Customer's Name
+/*****************************************************************************************************************************
+    Module Name: Setter Function for setting Customer's Balance
     Author: Faiza Fatma Siddiqui
     Date Created/Modified: 01.11.2021
-    Purpose: CS 700 - Software Development Fundamentals - Assignment 3
-    Description: Set customer's name to the current value in pointer object (if not initialized by Constructor)
-        @param name: for passing customer's name as string data type
+    Purpose: For setting Customer's Balance
+    Description: Sets customer's Balance to the current value in pointer object (if not initialized by Constructor)
+        @param account_number: for passing and storing customer's Account Balance as double data type
         @return null
 *****************************************************************************************************************************/
     void set_balance(double balance)
     {
+        ///assigns the value of current object to balance variable
         this->balance = balance;
     }
 
+
+/*****************************************************************************************************************************
+    Module Name: Setter Function for setting Customer Type - Senior 
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For Setting Senior Customer
+    Description: For Setting Senior Customer current value in pointer object (if not initialized by Constructor)
+    @param customer: an object of Senior Class for passing Senior customer details
+    @return null
+*****************************************************************************************************************************/
+    void setSenior(Senior customer)
+    {
+        ///assigns the value of current object to Customer Type - Senior
+        this->senior = customer;
+    }
 
 
 
