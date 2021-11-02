@@ -200,6 +200,20 @@ Description: Gets Customer's Age / Returns Customer's age when the function is c
     }
 
 
+/*****************************************************************************************************************************
+Module Name: Accessor(Getter) Function for Customer's Telephone Number
+Author: Faiza Fatma Siddiqui
+Date Created/Modified: 01.11.2021
+Purpose: For getting Customer's Telephone Number
+Description: Gets Customer's Telephone Number / Returns Customer's Telephone Number when the function is called
+    @param: None
+    @return Customer Telephone Number of long long data type of 64 bits is returned
+*****************************************************************************************************************************/
+    long long getTelephoneNumber()
+    {
+        ///returns the pointer value of current object that is customer's Telephone Number of long long data type
+        return this->telephone_number;
+    }
 
 
 /********MAIN MAIN MAIN***************/
