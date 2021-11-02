@@ -87,6 +87,22 @@ Description: Set customer's name to the current value in pointer object (if not 
 
 
 
+/*****************************************************************************************************************************
+Module Name: Setter Function for setting Customer's Address
+Author: Faiza Fatma Siddiqui
+Date Created/Modified: 01.11.2021
+Purpose: For setting Customer's Address
+Description: Set customer's address to the current value in pointer object 
+    @param address: for passing customer's address as string data type
+    @return null
+*****************************************************************************************************************************/
+    void setAddress(string address)
+    {
+        ///pointer value of current object get assigned with customer address
+        this->address = address;
+    }
+
+
 
 
 /*****************************************************************************************************************************
