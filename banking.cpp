@@ -648,6 +648,20 @@ public:
     }
 
 
+/*****************************************************************************************************************************
+    Module Name: Acccount Number Accessor(Getter) Function 
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For getting Acccount Number
+    Description: Gets Acccount Number / Returns Acccount Number when the function is called
+        @param: None
+        @return Acccount Number of integer data type is returned
+*****************************************************************************************************************************/
+    int getAccountNumber()
+    {
+        ///assigns current value in pointer object to the account_number variable
+        return this->account_number;
+    }
 
 
 
