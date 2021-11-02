@@ -544,6 +544,22 @@ public:
         this->account_number = account_number;
     }
 
+/*****************************************************************************************************************************
+    Module Name: Setter Function for setting Customer's Name
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: CS 700 - Software Development Fundamentals - Assignment 3
+    Description: Set customer's name to the current value in pointer object (if not initialized by Constructor)
+        @param name: for passing customer's name as string data type
+        @return null
+*****************************************************************************************************************************/
+    void set_balance(double balance)
+    {
+        this->balance = balance;
+    }
+
+
+
 
 
 }
