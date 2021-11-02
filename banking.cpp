@@ -786,6 +786,113 @@ public:
 
 
 
+/*****************************************************************************************************************************
+    Module Name: Class to Find Time Period
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: To find Date durations, formatting start date and end date
+*****************************************************************************************************************************/
+class FindTimePeriod
+{
+public:
+
+/*****************************************************************************************************************************
+    Module Name: Function to Find Time Period
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: This Function returns the Time Period between start date and end date:
+    Description: Displays Customer Information like Account Number, Customer Type, Customer Name, Account Balance
+    for displaying customer's information as string data type
+        @param start: Start date in string format
+        @param end: End date in string format
+        @return Monthly interest
+    Precondition: Date should be in dd/mm/yyyy format only
+    Postcondition: Calculates and returns Monthly Interest from the Dates
+*****************************************************************************************************************************/
+    static int findTimePeriod(string start, string end)
+    {
+        ///Formatting Start Date:
+        ///Date sholud be in dd/mm/yyyy format else this function won't work
+        start += "/";
+        ///for storing month of Start Date
+        int startMonths;
+        ///for stroing year of Start Date
+        int startYears;
+        ///for storing days of Start Days
+        int startDays;
+        ///to store the date
+        string splittedString[3];
+        ///temperory variable for helping in storing the formatted date
+        string temp = "";
+        ///for indexing of string
+        int j = 0;
+
+        ///range based for loop for iterating over all elements of start date string
+        for (char i : start)
+        {   
+            ///until '/' is found, keep putting the characters in splittedstring (ONLY if dd/mm/yyyy format is followed)
+            if(i=='/')
+            {   
+                ///this would give day as the [0] element, month as [1] element, year as [2] element of splittedString
+                splittedString[j++] = temp;
+                temp = "";
+            }
+            else
+            {
+                temp += i;
+            }
+        }
+        ///convert the string to integer using stoi() then store the string in [0] element which is date of start Date
+        startDays = stoi(splittedString[0]);
+        ///convert the string to integer using stoi() then store the string in [1] element which is Months of start Date
+        startMonths = stoi(splittedString[1]);
+        ///convert the string to integer using stoi() then store the string in [2] element which is year of start Date
+        startYears = stoi(splittedString[2]);
+
+        //Formatting End Date:
+        end += "/";
+        ///for storing month of end date
+        int endMonths;
+        ///for storing years of end date
+        int endYears;
+        ///for storing days of end date
+        int endDays;
+        temp = "";
+        ///for indexing of string
+        j = 0;
+
+        ///range based for loop for iterating over all elements of start date string
+        for (char i : end)
+        {
+            ///until '/' is found, keep putting the characters in splittedstring (ONLY if dd/mm/yyyy format is followed)
+            if (i == '/')
+            {
+                ///this would give day as the [0] element, month as [1] element, year as [2] element of splittedString
+                splittedString[j++] = temp;
+                temp = "";
+            }
+            else
+            {
+                temp += i;
+            }
+        }
+        ///convert the string to integer using stoi() then store the string in [0] element which is day of end date
+        endDays = stoi(splittedString[0]);
+        ///convert the string to integer using stoi() then store the string in [1] element which is month of end date
+        endMonths = stoi(splittedString[1]);
+        ///convert the string to integer using stoi() then store the string in [2] element which is year of end date
+        endYears = stoi(splittedString[2]);
+
+        //Here We consider Interest Month Wise:
+        //If Yearly is needed- do this:
+        //return (endYears - startYears) + (endMonths - startMonths) + (endDays - startDays)/ 30)/ 12;
+        //Calculate Monthly Interest:
+        return (endYears - startYears) * 12 + (endMonths - startMonths) + (endDays - startDays) / 30;
+    }
+};
+
+
+
 /********MAIN MAIN MAIN***************/
 
 /*****************************************************************************************************************************
