@@ -918,6 +918,59 @@ public:
         this->balance += amount;
     }
 
+
+/*****************************************************************************************************************************
+    Module Name: Withdraw Function
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: To withdraw amount from Savings Account
+    Description: Withdraws amount from the current balance in Savings Account
+        @param amount: for passing withdraw amount as double data type to update the Current Account Balance
+        @param date: for date of Withdrawal to be stored with every transaction
+        @param SAVINGS_INTEREST: for calculating interest on savings
+        @param OVER_DUE_PENALTY: for calculating overdue penalty charges
+        @return null
+*****************************************************************************************************************************/
+    void withdraw(double amount, string date, float SAVINGS_INTEREST, float OVER_DUE_PENALTY)
+    {
+        ///if the Account Balance is less than Withdrawal Amount then notify insufficient balance
+        if (this->balance < amount)
+        {
+            cout << "\tInsufficient Balance" << endl;
+        }
+        else
+        {
+            string start;
+            ///to get the start date of withdrawal
+            start = this->transactions[this->transactionIndex - 1].date;
+            
+            ///Find Time Period For Previous Transaction:
+            int timePeriod = FindTimePeriod::findTimePeriod(start, date); 
+            
+            ///to add interest if needed
+            this->add_interest(SAVINGS_INTEREST, timePeriod, date);
+            
+            ///to calculate over due penalty, deduct from Account Balance
+            this->balance -= OVER_DUE_PENALTY;
+            Transaction transaction;
+
+            ///process the transaction means reduce the withdrawal amount from balance 
+            transaction.processTransactio(
+                "OVR CHG", OVER_DUE_PENALTY, date, 0, this->balance);
+
+            ///save the changes in transactions and balance amount
+            this->setTransactions(transaction);
+            this->balance -= amount;
+        }
+    }
+
+
+
+
+
+
+
+
 };
 
 
