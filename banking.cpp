@@ -184,6 +184,21 @@ Description: Gets Customer's Address / Returns Customer's address when the funct
     }
 
 
+/*****************************************************************************************************************************
+Module Name: Accessor(Getter) Function for getting Customer's Age
+Author: Faiza Fatma Siddiqui
+Date Created/Modified: 01.11.2021
+Purpose: For getting Customer's Age
+Description: Gets Customer's Age / Returns Customer's age when the function is called
+    @param: None
+    @return Customer age of short data type is returned
+*****************************************************************************************************************************/
+    short getAge()
+    {
+        ///returns the pointer value of current object that is customer's age of string type
+        return this->age;
+    }
+
 
 
 
