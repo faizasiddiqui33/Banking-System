@@ -152,6 +152,21 @@ Description: Set Customer Type Number to the current value in pointer object if 
     }
 
 
+/*****************************************************************************************************************************
+Module Name: Accessor(Getter) Function for getting Customer's Name
+Author: Faiza Fatma Siddiqui
+Date Created/Modified: 01.11.2021
+Purpose: For getting Customer's Name
+Description: Gets Customer's name / Returns Customer's name when the function is called
+    @param: None
+    @return Customer name of string data type is returned
+*****************************************************************************************************************************/
+    string get_customer()
+    {
+        ///returns the pointer value of current object that is customer's name of string type
+        return this->name;
+    }
+
 
 
 
