@@ -994,6 +994,30 @@ public:
 };
 
 
+/*****************************************************************************************************************************
+    Module Name: Checking_Account Class which is a subclass derived from super Class Account 
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: To perform all functions in Checkings Account
+    Description: Includes functions for deposit, withdraw and add interests in Checkings Account 
+*****************************************************************************************************************************/
+class Checking_Account : public Account
+{
+public:
+
+/*****************************************************************************************************************************
+    Module Name: Deposit Function
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: To add deposit amount in Checkings Account
+    Description: Adds deposit amount to the current balance in Checkings Account
+        @param amount: for passing deposit amount as double data type and storing it in Current Account Balance
+        @return null
+*****************************************************************************************************************************/
+    void deposit(double amount)
+    {
+        this->balance += amount;
+    }
 
 
 
