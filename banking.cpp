@@ -119,6 +119,22 @@ Description: Sets customer's age to the current value in pointer object
     }
 
 
+/*****************************************************************************************************************************
+Module Name: Setter Function for setting Customer's Telephone Number
+Author: Faiza Fatma Siddiqui
+Date Created/Modified: 01.11.2021
+Purpose: For setting Customer's Telephone Number
+Description: Set customer's telephone number to the current value in pointer object 
+    @param telephone_number: for passing Customer Telephone Number as long long data type for 64 bits
+    @return null
+*****************************************************************************************************************************/
+    void setTelephoneNumber(long long telephone_number)
+    {
+        ///pointer value of current object get assigned with telephone number
+        this->telephone_number = telephone_number;
+    }
+
+
 
 
 /********MAIN MAIN MAIN***************/
