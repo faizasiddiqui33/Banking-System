@@ -583,6 +583,21 @@ public:
     }
 
 
+/*****************************************************************************************************************************
+    Module Name: Setter Function for setting Customer Type - Adult 
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For Setting Adult Customer
+    Description: For Setting Adult Customer current value in pointer object (if not initialized by Constructor)
+    @param customer: an object of Adult Class for passing Adult customer details
+    @return null
+*****************************************************************************************************************************/
+    //Setting Adult Customer:
+    void setAdult(Adult customer)
+    {
+        ///assigns the value of current object to Customer Type - Adult
+        this->adult = customer;
+    }
 
 
 }
