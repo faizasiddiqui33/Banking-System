@@ -745,6 +745,43 @@ public:
     }
 
 
+/*****************************************************************************************************************************
+    Module Name: Function to Display Customer Information
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: To Display Customer Information
+    Description: Displays Customer Information like Account Number, Customer Type, Customer Name, Account Balance
+        @param name: for displaying customer's information as string data type
+        @return null
+*****************************************************************************************************************************/
+    void to_string()
+    {   
+        ///display Account Number
+        cout << "\tAccount Number is : " << this->account_number << endl;
+
+        ///To decide customerType: which customer is under consideration 1-Senior, 2-Adult, 3-Student
+        switch (this->customerType) 
+        {
+        case 1:
+            cout << "\tCustomer Type is : " << this->getSenior().type();
+            cout << "\tOwner \t : " << this->getSenior().name << endl;
+            break;
+
+        case 2:
+            cout << "\tCustomer Type is : " << this->getAdult().type();
+            cout << "\tOwner \t: " << this->getAdult().name << endl;
+            break;
+
+        case 3:
+            cout << "\tCustomer Type is : " << this->getStudent().type();
+            cout << "\tOwner \t : " << this->getStudent().name << endl;
+            break;
+
+        }
+        ///display Account Balance 
+        cout << "\tBalance : $" << this->balance << endl;
+    }
+};
 
 
 
