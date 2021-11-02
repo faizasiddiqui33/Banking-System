@@ -136,6 +136,26 @@ Description: Set customer's telephone number to the current value in pointer obj
 
 
 
+/*****************************************************************************************************************************
+Module Name: Setter Function for setting Customer's Type Number
+Author: Faiza Fatma Siddiqui
+Date Created/Modified: 01.11.2021
+Purpose: For setting Customer's Type Number
+Description: Set Customer Type Number to the current value in pointer object if not initialized by Constructor
+    @param customer_number: For passing Customer Type Number as integer data type: 1-Senior, 2-Adult, 3-Adult
+    @return null
+*****************************************************************************************************************************/
+    void setCustomerNumber(int customer_number)
+    {
+        ///pointer value of current object get assigned with customer's type number
+        this->customer_number = customer_number;
+    }
+
+
+
+
+
+
 
 /********MAIN MAIN MAIN***************/
 
