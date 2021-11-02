@@ -45,7 +45,31 @@ public:
     //Default Constructor:
     Customer() {}
 
-}
+
+/*****************************************************************************************************************************
+Module Name: Customer Class Constructor
+Description: Customer Class Constructor that intializes members for setting the values of data fields to the current value in pointer object
+    @param name: for passing customer's name as string data type
+    @param address: for passing customer's address as string data type
+    @param age: for passing customer's age as short data type. It will most likely be between 0-100
+    @param telephone_number: for passing telephone number of customer as long long data type of 64 bits
+    @param customer_number: for passing Customer Type in the form of number 1-for Senior, 2-for Adult, 3-for Student
+*****************************************************************************************************************************/
+    Customer(string name, string address, short age, long long telephone_number, int customer_number)
+    {
+        ///pointer value of current object get assigned with customer name
+        this->name = name;
+        ///pointer value of current object get assigned with customer address
+        this->address = address;
+        ///pointer value of current object get assigned with customer age
+        this->age = age;
+        ///pointer value of current object get assigned with telephone number
+        this->telephone_number = telephone_number;
+        ///pointer value of current object get assigned with customer type number
+        this->customer_number = customer_number;
+    }
+
+
 
 
 /*****************************************************************************************************************************
