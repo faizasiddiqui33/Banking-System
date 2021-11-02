@@ -276,6 +276,25 @@ public:
     }
 
 
+/*****************************************************************************************************************************
+    Module Name: Accessor(Getter) Function for getting Customer's Type for Senior Customer
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For passing Customer Type in the form of number 1-for Senior, 2-for Adult, 3-for Student
+    Description: Gets Customer's Type - Senior / Returns Customer's Type as Senior when the function is called
+    @param: None
+    @return Customer Type Number of string data type is returned
+*****************************************************************************************************************************/
+    string type()
+    {
+        ///Returns Customer's Type as Senior when the function is called
+        return "SENIOR\n";
+    }
+};
+
+
+
+
 
 
 /********MAIN MAIN MAIN***************/
