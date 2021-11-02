@@ -475,7 +475,47 @@ public:
 };
 
 
+/*****************************************************************************************************************************
+Module Name: Class Account
+Author: Faiza Fatma Siddiqui
+Date Created/Modified: 01.11.2021
+Purpose: For getting and setting Account Details
+Description: For getting and setting Account Details
+*****************************************************************************************************************************/
+class Account
+{
+public:
+    Customer customer;
+    
+    /// if Senior Customer is passed:
+    Senior senior;   
+    
+    /// if Adult Customer is passed:
+    Adult adult;    
 
+    // If Student Customer is passed:
+    Student student; 
+
+    ///for storing transaction count
+    Transaction *trans[100];
+
+    ///for storing balance in bank account
+    double balance;
+
+    ///for storing account number
+    int account_number;
+
+    ///For all transactions
+    Transaction transactions[100];
+    
+    ///for indexing of transactionss
+    int transactionIndex = 0;
+    
+    /// Customer Type Defines what type of customner is passed i.e Senoir , Adult or Student
+    int customerType; 
+
+
+}
 
 
 
