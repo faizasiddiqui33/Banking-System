@@ -680,6 +680,19 @@ public:
     }
 
 
+/*****************************************************************************************************************************
+    Module Name: Senior Account Type Accessor(Getter) Function 
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For getting Senior Acccount Type, if Senior - Customer Type is chosen
+    Description: Gets Senior Acccount Type / Returns Senior Acccount Type when the function is called
+        @param: None
+        @return Acccount Type Senior: object of Class Senior is returned
+*****************************************************************************************************************************/
+    Senior getSenior()
+    {
+        return this->senior;
+    }
 
 
 
