@@ -335,6 +335,23 @@ public:
     }
 
 
+/*****************************************************************************************************************************
+Module Name: Accessor(Getter) Function for getting Customer's Type for Adult Customer
+Author: Faiza Fatma Siddiqui
+Date Created/Modified: 01.11.2021
+Purpose: For passing Customer Type in the form of number 1-for Senior, 2-for Adult, 3-for Student
+Description: Gets Customer's Type - Adult / Returns Customer's Type as Adult when the function is called
+    @param: None
+    @return Customer Type Number which will be '2' for Adult: string data type is returned
+*****************************************************************************************************************************/
+    string type()
+    {
+        return "ADULT\n";
+    }
+};
+
+
+
 
 
 
