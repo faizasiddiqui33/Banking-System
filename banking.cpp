@@ -103,7 +103,25 @@ Description: Set customer's address to the current value in pointer object
     }
 
 
+/*****************************************************************************************************************************
+Module Name: Setter Function for Setting Customer's Age
+Author: Faiza Fatma Siddiqui
+Date Created/Modified: 01.11.2021
+Purpose: For setting Customer's Age
+Description: Sets customer's age to the current value in pointer object
+    @param address: for passing Customer's Age as short data type because it will be most likely between 0-100
+    @return null
+*****************************************************************************************************************************/
+    void setAge(short age)
+    {
+        ///pointer value of current object get assigned with customer age
+        this->age = age;
+    }
 
+
+
+
+/********MAIN MAIN MAIN***************/
 
 /*****************************************************************************************************************************
 Module Name: Setter Function for setting Customer's Name
