@@ -70,6 +70,23 @@ Description: Customer Class Constructor that intializes members for setting the 
     }
 
 
+/*****************************************************************************************************************************
+Module Name: Setter Function for setting Customer's Name
+Author: Faiza Fatma Siddiqui
+Date Created/Modified: 01.11.2021
+Purpose: For setting Customer's Name
+Description: Set customer's name to the current value in pointer object (if not initialized by Constructor)
+    @param name: for passing customer's name as string data type
+    @return null
+*****************************************************************************************************************************/
+    void setName(string name)
+    {
+        ///pointer value of current object get assigned with customer name
+        this->name = name;
+    }
+
+
+
 
 
 /*****************************************************************************************************************************
