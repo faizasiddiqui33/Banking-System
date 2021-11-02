@@ -135,7 +135,6 @@ Description: Set customer's telephone number to the current value in pointer obj
     }
 
 
-
 /*****************************************************************************************************************************
 Module Name: Setter Function for setting Customer's Type Number
 Author: Faiza Fatma Siddiqui
@@ -231,6 +230,35 @@ Description: Gets Customer's Type Number / Returns Customer's Type Number when t
         return this->customer_number;
     }
 };
+
+
+/*****************************************************************************************************************************
+Module Name: Senior Class which is a subclass derived from super Class Customer
+Author: Faiza Fatma Siddiqui
+Date Created/Modified: 01.11.2021
+Purpose: for initializing data members
+Description: 
+To declare & initialize savings account's interest, checking's account interest, Cheque Charges and overdraft penalty charges
+To get customer name, address, age, telephone number and customer type number from Senior class, which is derived from Customer super class 
+*****************************************************************************************************************************/
+class Senior : public Customer
+{
+    ///public section of Senior Class
+public:
+    ///To declare & initialize savings account's interest as constant float 
+    static constexpr float SAVINGS_INTEREST = 0.1;
+
+    ///To declare & initialize checkings account's interest as constant float 
+    static constexpr float CHECK_INTEREST = 0.05;
+
+    ///To declare & initialize Cheque Charges as constant float 
+    static constexpr float CHECK_CHARGE = 0.01;
+
+    ///To declare & initialize Overdraft penalty as constant float 
+    static constexpr float OVERDRAFT_PENALTY = 0.001;
+
+    ///Senior Class Default Constructor
+    Senior() {}
 
 
 
