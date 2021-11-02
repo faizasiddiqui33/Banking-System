@@ -784,8 +784,6 @@ public:
 };
 
 
-
-
 /*****************************************************************************************************************************
     Module Name: Class to Find Time Period
     Author: Faiza Fatma Siddiqui
@@ -889,6 +887,37 @@ public:
         //Calculate Monthly Interest:
         return (endYears - startYears) * 12 + (endMonths - startMonths) + (endDays - startDays) / 30;
     }
+};
+
+
+
+/*****************************************************************************************************************************
+    Module Name: Savings_Account Class which is a subclass derived from super Class Account 
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: To perform all functions in Savings Account
+    Description: Includes functions for deposit, withdraw and add interests in Savings Account 
+*****************************************************************************************************************************/
+class Savings_Account : public Account
+{
+public:
+
+
+/*****************************************************************************************************************************
+    Module Name: Deposit Function
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: To add deposit amount in Savings Account
+    Description: Adds deposit amount to the current balance in Savings Account
+        @param amount: for passing deposit amount as double data type and storing it in Current Account Balance
+        @return null
+*****************************************************************************************************************************/
+    void deposit(double amount)
+    {
+
+        this->balance += amount;
+    }
+
 };
 
 
