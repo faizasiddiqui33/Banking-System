@@ -413,6 +413,68 @@ public:
 //Customer Details End:
 
 
+//Transaction Details:
+/*****************************************************************************************************************************
+Module Name: Transaction Class
+Author: Faiza Fatma Siddiqui
+Date Created/Modified: 01.11.2021
+Purpose: For Fetching Transaction Details
+Description: To process Transactions and declare variables needed for transaction
+*****************************************************************************************************************************/
+class Transaction
+{
+public:
+
+    ///to store customer number type 1-For Senior, 2-Adult, 3-Student
+    int customer_number;
+    
+    ///to store the type of transaction: Add Account, Deposit, Withdrawal, Check Account Details
+    string transaction_type;
+    
+    ///to store the amount of withdraw or deposit if any
+    double amount;
+    
+    ///to store the remaining balance
+    double balance;
+    
+    ///to store the date of transaction
+    string date;
+    
+    ///to store the fees of cheque or overpenalty
+    float fees = 0;
+    
+/*****************************************************************************************************************************
+    Module Name: Changing input variables to string
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For Printing Transaction Details
+    Description: To Print Transaction Details in a well-formatted fashion
+*****************************************************************************************************************************/
+    void to_string()
+    {
+        cout << "\n"
+        cout << "\t\t" << this->transaction_type << "\t" << this->date << "\t$" << this->amount << "\t" << endl;
+    }
+
+
+/*****************************************************************************************************************************
+    Module Name: Process Transaction Function
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For Process Transaction Details
+    Description: To Process Transaction Details by taking it from current pointer object
+*****************************************************************************************************************************/
+    void processTransactio(string transaction_type, double amount, string date, float fees, double balance)
+    {
+        this->amount = amount;
+        this->fees = fees;
+        this->date = date;
+        this->transaction_type = transaction_type;
+        this->balance = balance;
+    }
+};
+
+
 
 
 
