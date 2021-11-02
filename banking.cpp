@@ -551,7 +551,6 @@ public:
 
 
 /*****************************************************************************************************************************
-/*****************************************************************************************************************************
     Module Name: Setter Function for setting Customer's Balance
     Author: Faiza Fatma Siddiqui
     Date Created/Modified: 01.11.2021
@@ -783,7 +782,6 @@ public:
     }
 };
 
-
 /*****************************************************************************************************************************
     Module Name: Class to Find Time Period
     Author: Faiza Fatma Siddiqui
@@ -888,7 +886,6 @@ public:
         return (endYears - startYears) * 12 + (endMonths - startMonths) + (endDays - startDays) / 30;
     }
 };
-
 
 
 /*****************************************************************************************************************************
@@ -1315,56 +1312,429 @@ public:
                 break;
             }
 
-            ///store the amount balance in Savings Account
+            ///store the amount balance in checkings Account
             checkingAccount.set_balance(balance);
+
+            ///store the customer type in checkings Account
             checkingAccount.set_customer(customerType);
             checkingAccounts[cIndex++] = checkingAccount;
             break;
+        ///If any other incorrect key is entered, sent this error message
         default:
-            cout << "\tPlease choose a desired option" << endl;
+            cout << "\tERROR! Please choose a desired option" << endl;
         }
+    ///On successful addition of account, give confirmation and account number
         cout << "\tAccount Added  : " << this->account_number << "\n\n";
     }
 
 
+/*****************************************************************************************************************************
+    Module Name: Getter Function for getting Account Number & Account Type
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: TO FIND IF AN ACCOUNT EXISTS OR NOT
+    Description: FUNCTION TO FIND IF AN ACCOUNT EXISTS OR NOT. Return index, if found: else return -1:
+        @param account_number: passing account number as integer data type to compare and fetch the details of the account
+        @param actType: passing account type for getting 0 for savings & 1 for checkings account
+        @return : account type in the form of integer data type
+*****************************************************************************************************************************/
+    int get_account(int account_number, int actType)
+    {   
+        ///for searching for an account
+        int j = 0;
+        
+        ///to determine Account Type: Savings or Checkings Account
+        switch (actType)
+        {
+        case 1:
+            //CASE 1 if ACCOUNT EXISTS IN SAVING Accounts:
+            j = 0;
+            for (Savings_Account i : this->savingAccounts)
+            {
+                ///Traversing to find if the account number provided by the user is the same as stored
+                if (i.account_number == account_number)
+                {
+                    return j;
+                }
+                j++;
+            }
+            break;
 
+        case 2:
+            //CASE 2 IF ACCOUNT EXITS IN CHECKING ACCOUNTS:
+            j = 0;
+            for (Checking_Account i : this->checkingAccounts)
+            {
+                ///Traversing to find if the account number provided by the user is the same as stored
+                if (i.account_number == account_number)
+                {
+                    return j;
+                }
+                j++;
+            }
+            break;
+        }
+        /// if account number not found return -1:
+        return -1;
+    }
 
-
-
-
-/********MAIN MAIN MAIN***************/
 
 /*****************************************************************************************************************************
-Module Name: Setter Function for setting Customer's Name
-Author: Faiza Fatma Siddiqui
-Date Created/Modified: 01.11.2021
-Purpose: CS 700 - Software Development Fundamentals - Assignment 3
-Description: Set customer's name to the current value in pointer object (if not initialized by Constructor)
-    @param name: for passing customer's name as string data type
-    @return null
+    Module Name: Function for Making Deposit
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: To add deposit amount in Checkings Account & Savings Account
+    Description: Adds deposit amount to the current balance in Checkings Account & Savings Account
+        @param amount: deposit amount of double data type for storing deposit in Current Account Balance
+        @param account_number: passing account number as integer data type to compare and fetch the details of the account
+        @param date: to store the date of deposit as string data type
+        @param fees: the fees as float data type which is initially 0
+        @return null
+*****************************************************************************************************************************/
+    void make_deposit(double amount, int account_number, string date, float fees = 0)
+    {
+        ///to get the account type of customer
+        int accountType = this->accountTypes[account_number];
+
+        ///FIND ACCOUNT :
+        int index = this->get_account(account_number, accountType); 
+
+        ///previous function returned -1 when account number was not found, so if index is 1, account is not found
+        if (index == -1)
+            cout << "\tAccount Number Not Found" << endl;
+        else
+        {   
+            ///check is deposit amount is less than 0
+            if (amount < 0)
+            {
+                cout << "\t AMOUNT LESS THAN 0" << endl;
+            }
+            else
+            {
+                ///To determine which Account Type
+                switch (accountType)
+                {
+                ///For Savings Account
+                case 1:
+                    if (amount > 0)
+                    {
+                        ///store the deposit amount
+                        savingAccounts[index].deposit(amount);
+
+                        ///get the balance of the particular account number provided to add deposit amount to it
+                        Transaction transaction;
+                        transaction.processTransactio("DEP", amount, date, fees, savingAccounts[index].get_balance());
+
+                        ///save the changes in Amount Balance & transactions
+                        savingAccounts[index].setTransactions(transaction);
+
+                        ///Deposit confirmation message with new balance
+                        cout << "\tDeposited Success! " << endl;
+                        cout << "\tNew Balance is $" << savingAccounts[index].get_balance() << endl;
+                    }
+                    break;
+
+                ///For Checkings Account
+                case 2:
+                    if (amount > 0)
+                    {
+                        ///store the deposit amount
+                        checkingAccounts[index].deposit(amount);
+
+                        ///get the balance of the particular account number provided to add deposit amount to it
+                        Transaction transaction;
+                        transaction.processTransactio("DEP", amount, date, fees, checkingAccounts[index].get_balance());
+
+                        ///save the changes in Amount Balance & transactions
+                        checkingAccounts[index].setTransactions(transaction);
+
+                        ///Deposit confirmation message with new balance
+                        cout << "\tDeposited Success !" << endl;
+                        cout << "\tNew Balance is $" << checkingAccounts[index].get_balance() << endl;
+                    }
+                    break;
+                }
+            }
+        }
+    }
+
+
+/*****************************************************************************************************************************
+    Module Name: Function to make Withdrawal
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: To add deposit amount in Checkings Account & Savings Account
+    Description: Withdraws amount from the current balance in Savings Account
+        @param amount: deposit amount of double data type for storing deposit in Current Account Balance
+        @param account_number: passing account number as integer data type to compare and fetch the details of the account
+        @param date: to store the date of deposit as string data type
+        @param fees: the fees as float data type which is initially 0
+        @return null
+*****************************************************************************************************************************/
+    void make_withdrawal(double amount, int account_number, string date, float fees = 0)
+    {
+        ///to get the account type
+        int accountType = this->accountTypes[account_number];
+
+        ///FIND ACCOUNT & Account Type
+        int index = this->get_account(account_number, accountType);
+
+        ///for storing savings interest
+        float SAVINGS_INTEREST;
+
+        ///for storing check interest
+        float CHECK_INTEREST;
+
+        ///for storing cheque charges
+        float CHECK_CHARGE;
+
+        ///for storing overdraft penalty
+        float OVERDRAFT_PENALTY;
+
+        ///previous function returned -1 when account number was not found, so if index is 1, account is not found
+        if (index == -1)
+            cout << "\tAccount Not Found";
+        else
+        {
+            if (amount < 0)
+            {
+                ///check is withrawal amount is less than 0
+                cout << "\t AMOUNT CAN'T BE LESS THAN 0" << endl;
+            }
+            else
+            {
+                ///To determine which Account Type
+                switch (accountType)
+                {
+                /// CASE 1 FOR SAVING ACCOUNT
+                case 1:
+                    ///To determine which Customer Type
+                    switch (this->customerType)
+                    {
+                    ///For Senior Customer
+                    case 1:
+                        SAVINGS_INTEREST = savingAccounts[index].getSenior().SAVINGS_INTEREST;
+                        OVERDRAFT_PENALTY = savingAccounts[index].getSenior().OVERDRAFT_PENALTY;
+                        break;
+
+                    ///For Adult Customer
+                    case 2:
+                        SAVINGS_INTEREST = savingAccounts[index].getAdult().SAVINGS_INTEREST;
+                        OVERDRAFT_PENALTY = savingAccounts[index].getAdult().OVERDRAFT_PENALTY;
+                        break;
+
+                    ///For Student Customers
+                    case 3:
+                        SAVINGS_INTEREST = savingAccounts[index].getStudent().SAVINGS_INTEREST;
+                        OVERDRAFT_PENALTY = savingAccounts[index].getStudent().OVERDRAFT_PENALTY;
+                        break;
+                    }
+
+                    ///Check if withdrawal amount is more than Balance amount
+                    if (amount > 0 && amount <= savingAccounts[index].balance)
+                    {
+                        ///store the withdrawal amount
+                        savingAccounts[index].withdraw(amount, date, SAVINGS_INTEREST, OVERDRAFT_PENALTY);
+
+                        ///get the balance of the particular account number provided to withdraw amount from
+                        Transaction transaction;
+                        transaction.processTransactio("WD", amount, date, fees, savingAccounts[index].get_balance());
+
+                        ///save the changes in Amount Balance after withdraw & transactions
+                        savingAccounts[index].setTransactions(transaction);
+
+                        ///Withdraw confirmation message with new balance
+                        cout << "\tWithdraw of amount : $ " << amount << " Success!" << endl;
+                        cout << "\tNew Balance is  $ " << savingAccounts[index].get_balance() << endl;
+                    }
+                    else
+                        ///give error message if withdrawal amount is more than balance in Savings Account
+                        cout << "\n\tInsufficient balance, Cannot withdraw!" << endl;
+                    break;  
+                
+                ///CASE 2 FOR CHECKING ACCOUNT:
+                case 2:
+                    ///To determin the Customer Type
+                    switch (this->customerType)
+                    {
+                    ///FOR SENIOR CUSTOMER
+                    case 1:
+                        CHECK_INTEREST = checkingAccounts[index].getSenior().CHECK_INTEREST;
+                        CHECK_CHARGE = checkingAccounts[index].getSenior().CHECK_CHARGE;
+                        break;
+
+                    /////FOR ADULT CUSTOMER
+                    case 2:
+                        CHECK_INTEREST = checkingAccounts[index].getAdult().CHECK_INTEREST;
+                        CHECK_CHARGE = checkingAccounts[index].getAdult().CHECK_CHARGE;
+                        break;
+
+                    ///FOR STUDENT CUSTOMER
+                    case 3:
+                        CHECK_INTEREST = checkingAccounts[index].getStudent().CHECK_INTEREST;
+                        CHECK_CHARGE = checkingAccounts[index].getStudent().CHECK_CHARGE;
+                        break;
+                    }
+                    ///Check if withdrawal amount is more than Balance amount
+                    if (amount > 0 && amount <= checkingAccounts[index].balance)
+                    {
+                        ///store the withdrawal amount in Checkings Account
+                        checkingAccounts[index].withdraw(amount, date, CHECK_INTEREST, CHECK_CHARGE);
+
+                        ///get the balance of the particular account number provided to withdraw amount from
+                        Transaction transaction;
+                        transaction.processTransactio("WD", amount, date, fees, checkingAccounts[index].get_balance());
+
+                        ///save the changes in Amount Balance after withdraw & transactions
+                        checkingAccounts[index].setTransactions(transaction);
+                        
+                        ///Withdraw confirmation message with new balance
+                        cout << "\tWithdraw of amount : $ " << amount << " Success !" << endl;
+                        cout << "\tNew Balance is  $ " << checkingAccounts[index].get_balance() << endl;
+                        cout << "\t Amount " << amount << " is withdrawn successfully" << endl;
+                    }
+                    else
+                        ///give error message if withdrawal amount is more than balance in Checkings Account
+                        cout << "\n\tInsufficient balance, Cannot withdraw!" << endl;
+                    break;
+                }
+            }
+        }
+    }
+
+
+/*****************************************************************************************************************************
+    Module Name: Getter Function for getting Account Number
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: To get the account number for both savings and checkings account
+    Description: Set customer's name to the current value in pointer object (if not initialized by Constructor)
+        @param account_number: for passing account as integer data type that is to be searched
+        @return bool: True is account number found, false if not found
+*****************************************************************************************************************************/
+    bool get_Account_number(int account_number)
+    {   
+        ///to get the account type: Savings or Checkings
+        int accountType = this->accountTypes[account_number];
+        int index = this->get_account(account_number, accountType);
+
+        ///Account does not exist if index is -1
+        if (index == -1)
+        {
+            cout << "\tACCOUNT NOT FOUND!" << endl;
+            return false;
+        }
+        else
+        {
+            ///To determine the Type of Account
+            switch (accountType)
+            {
+            /// CASE 1 FOR SAVING ACCOUNTS
+            case 1:
+                this->savingAccounts[index].to_string();
+                break;
+            /// FOR CHECKING ACCOUNTS
+            case 2:
+                this->checkingAccounts[index].to_string();
+            }
+        }
+        this->getTransactionList(account_number);
+        return true;
+    }
+
+
+/*****************************************************************************************************************************
+    Module Name: Getter Function for getting Transactions List
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: To get the list of all Transactions
+    Description: Set customer's name to the current value in pointer object (if not initialized by Constructor)
+        @param account_number: passing account number as integer data type to search for its transactions  
+        @return null
+*****************************************************************************************************************************/
+    void getTransactionList(int account_number)
+    {
+        ///to get the account type: Savings or Checkings
+        int accountType = this->accountTypes[account_number];
+        int index = this->get_account(account_number, accountType);
+
+        ///Account does not exist if index is -1
+        if (index == -1)
+        {
+            cout << "\tACCOUNT NOT FOUND! " << endl;
+        }
+        else
+        {
+            ///To determine the Type of Account
+            switch (accountType)
+            {
+            /// CASE 1 FOR SAVING ACCOUNTS
+            case 1:
+                this->savingAccounts[index].getTransactionDetails();
+                break;
+
+            /// CASE 2 FOR CHECKING ACCOUNTS
+            case 2:
+                this->checkingAccounts[index].getTransactionDetails();
+                break;
+            }
+        }
+    }
+};
+
+
+/*****************************************************************************************************************************
+    Module Name: Main Function
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: To ask user for input and then perform the desired banking options using the object of Bank Class
+    Description: Give choice for Adding Account, Make Deposit, Withdrawal & Check Account Details
+        @param: None
+        @return int: if no error, int = 0, else it will be non-zero number
 *****************************************************************************************************************************/
 int main()
-{
+{   
+    ///To call functions of Bank class to perform the desired option
     Bank bank;
+
+    ///To store user's desired option
     int choice;
+
+    ///To store the balance amount
     double amount;
+
+    ///To store the fees of overdue penalty, cheque charges
     float fees = 0;
+
+    ///To store the Account Type
     int accountType;
+
+    ///To store the Account Number
     int accountNumber;
+
+    ///to store date of transaction
     string date;
+
+    ///flag to check if user wants to exit the program
     bool found;
     do
-    {
+    {   ///try catch block: to catch any undetermined error
         try
         {
+            ///Asks user to input any desired option and store that in choice variable
             cout << "\n\n\tEnter:\n\t 1 -- Add Account \n\t 2 -- Make Deposit \n\t 3 -- Make Withdrawal\n\t 4 -- Account Details \n\n\t Press any other key to Exit! \n\t >>  ";
             cin >> choice;
+
+            ///To determine which function was chosen by the user
             switch (choice)
             {
+            ///Case 1: To Add Account
             case 1:
+                ///calling add account function
                 bank.add_account();
                 break;
-         
+
+            ///Case 2: To Make Deposit which requires account no., deposit amount and date of deposit
             case 2:
                 cout << "\tEnter Account Number : >> ";
                 cin >> accountNumber;
@@ -1372,34 +1742,47 @@ int main()
                 cin >> amount;
                 cout << "\tEnter the Date of Transaction(dd/mm/yyyy) : >> ";
                 cin >> date;
+
+                ///calling make_deposit function
                 bank.make_deposit(amount, accountNumber, date, fees = fees);
                 break;
 
+            ///Case 3: To Withdraw which requires account no., Withdrawal amount and date of Withdrawal
             case 3:
                 cout << "\tEnter Account Number : >> ";
                 cin >> accountNumber;
                 cout << "\tEnter the WithDrawal Amount : >> $";
                 cin >> amount;
-                cout << "\tEnter the Date of Transaction(mm-dd-yyyy) : >> ";
+                cout << "\tEnter the Date of Transaction(dd/mm/yyyy) : >> ";
                 cin >> date;
+
+                ///calling make_withdrawal function
                 bank.make_withdrawal(amount, accountNumber, date, fees = fees);
                 break;
 
+            ///Case 4: To Check Bank Account Details which requires account no.
             case 4:
                 cout << "\tEnter Account Number : >> ";
                 cin >> accountNumber;
+
+                ///calling get_Account_number function
                 found = bank.get_Account_number(accountNumber);
                 break;
 
+            ///if anything else is chosen show the error message in try catch block
             default:
                 choice = 5;
             }
         }
+        ///To catch any error entered mistakenly by user
         catch (exception &x)
         {
             cout << "\t--------------------SOMETHING WENT WRONG! PLEASE TRY AGAIN! ----------" << endl;
             choice = 5;
         }
+    ///run the loop until choice is not set to 5, means unless user keeps entering option 1,2,3,4
     } while (choice != 5);
+
+    ///return 0 if program executed successfully because main function is of type integer
     return 0;
 }
