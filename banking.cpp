@@ -616,6 +616,20 @@ public:
     }
 
 
+/*****************************************************************************************************************************
+    Module Name: Customer Type Setter Function
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For Setting Customer Type Number
+    Description: Set Customer Type Number to the current value in pointer object if not initialized by Constructor
+        @param val: For passing Customer Type Number as integer data type: 1-Senior, 2-Adult, 3-Adult
+        @return null
+*****************************************************************************************************************************/
+    void set_customer(int val)
+    {
+        ///assigns the Customer Type Number to val variable
+        this->customerType = val;
+    }
 
 
 
