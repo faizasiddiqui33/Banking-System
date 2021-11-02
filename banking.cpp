@@ -632,6 +632,20 @@ public:
     }
 
 
+/*****************************************************************************************************************************
+    Module Name: Setter Function for setting Transactions
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: Add Transaction to Transaction Array
+    Description: Set Transaction Array from the current value in pointer object (if not initialized by Constructor)
+        @param transaction: an object of Transaction Class for passing and storing transaction details
+        @return null
+*****************************************************************************************************************************/
+    void setTransactions(Transaction transaction)
+    {
+        ///assigns current value in pointer object to the Transaction Array
+        this->transactions[this->transactionIndex++] = transaction;
+    }
 
 
 
