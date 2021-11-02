@@ -168,6 +168,21 @@ Description: Gets Customer's name / Returns Customer's name when the function is
     }
 
 
+/*****************************************************************************************************************************
+Module Name: Accessor(Getter) Function for getting Customer's Address
+Author: Faiza Fatma Siddiqui
+Date Created/Modified: 01.11.2021
+Purpose: For getting Customer's Address
+Description: Gets Customer's Address / Returns Customer's address when the function is called
+    @param: None
+    @return Customer address of string data type is returned
+*****************************************************************************************************************************/
+    string getAddress()
+    {
+        ///returns the pointer value of current object that is customer's address of string type
+        return this->address;
+    }
+
 
 
 
