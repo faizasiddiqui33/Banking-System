@@ -1096,6 +1096,241 @@ public:
 };
 
 
+/*****************************************************************************************************************************
+    Module Name: Class Bank
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For performing the main operations of Banking System
+    Description: It has functions To Add Account, Withdraw, make deposit, get account number and get transactions
+*****************************************************************************************************************************/
+class Bank
+{
+private:
+    ///for storing all accounts information in a pointer array
+    Account *accounts[20];
+    
+    ///for storing savings accounts information
+    Savings_Account savingAccounts[50];
+
+    ///for storing checkings accounts information
+    Checking_Account checkingAccounts[50];
+    
+    ///for storing number of customers
+    int customerNumber = 1;
+
+    ///for storing type of customer
+    int customerType;
+    
+    ///for storing account number starting from 0
+    int account_number = -1;
+
+    // saving accounts + checking accounts i.e 2*50
+    int accountTypes[2 * 50];
+
+public:
+
+
+/*****************************************************************************************************************************
+    Module Name: Add Account Function
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: To Add a new bank Account
+    Description: Function to add a new account after asking for Customer's name, address, age, telephone number, customer type
+    & account type. An Account Number is assigned.
+        @param None
+        @return null
+*****************************************************************************************************************************/
+    void add_account()
+    {
+        ///to store customer's name and address
+        string name, address;
+
+        ///to store customer's age
+        short age;
+
+        ///to store customer's telephone number
+        long long telephone_number;
+
+        ///to store the amount balance, which will be 0 when the account is created
+        double balance = 0;
+
+        ///to store transaction type: Withdrawal, Deposit, Add Account, Check Account Details
+        string transaction_type;
+
+        ///to store withdrawal or deposit amount
+        double amount = 0;
+
+        ///to store the interest charge fees, over due penalty or cheque charges
+        float fees = 0;
+
+        ///to store account type: 1.Checkings, 2.Savings
+        int accountType;
+
+        //Ask for Customer Name and receive input
+        cout << "\tEnter Customer Name : >> ";
+        cin >> name;
+        //Ask for Customer Address and receive input
+        cout << "\tEnter Customer Address : >> ";
+        cin >> address;
+
+        ///loop to check if customer's age is more than 100 or less than 0
+        while (true)
+        {
+            cout << "\tEnter Customer Age : >> ";
+            cin >> age;
+            if ((age / 100) <= 1 || age < 0) //CHECK ON AGE
+            {
+                break;
+            }
+            ///if customer age is more than 100 or less than 0, give error message
+            else
+            {
+                cout << "\n\t------------AGE CAN'T BE MORE THAT 100 AND LESS THAN 0----------------\n\n"
+                     << endl;
+            }
+        }
+
+        ///loop to check if customer's phone number is not more than 10 digits
+        while (true)
+        {
+            cout << "\tEnter Customer Phone Number : >>  ";
+            cin >> telephone_number;
+            //FOR TELEPHONE NUMBER TO BE 10 DIGITS LONG
+            if ((telephone_number / 10000000000) <= 1) 
+            {
+                break;
+            }
+            ///if customer's phone number is more than 10 digits, give error message
+            else
+            {
+                cout << "\n\t--------------TELEPHONE NUMBER SHOULD BE 10 DIGITS LONG---------------\n\n"
+                     << endl;
+            }
+        }
+        
+        ///loop to check if customer type number entered should be only 1, 2 or 3
+        while (true)
+        {
+            cout << "\tEnter Customer Type\n\t 1 --- Senior\n\t 2 --- Adult\n\t 3 --- Student \n\t >> ";
+            cin >> this->customerType;
+            //RESTRICTING CUSTOMER TO CHOOSE AMONG PROVIDED THREE OPTIONS 1-SENIOR 2-ADULT 3-STUDENT:
+            if (this->customerType == 1 || this->customerType == 2 || this->customerType == 3) 
+            {
+                break;
+            }
+            ///if customer's type number entered is not 1, 2 or 3, give error message
+            else
+            {
+                cout << "\t------------WRONG INPUT PLEASE PROVIDE A VALID INPUT-----------" << endl;
+            }
+        }
+ 
+        ///loop to check if Account type number entered should be only 1 or 2
+        while (true)
+        {
+            cout << "\tEnter\n\t1 --- Saving Account\n\t2 --- Checking Account Type \n\t >> ";
+            cin >> accountType;
+            //FOR RESTRICTING USER TO ENTER ONLY GIVEN OPTIONS
+            if (accountType == 1 || accountType == 2) 
+            {
+                break;
+            }
+            ///if Account type number entered is not 1 or 2, give error message
+            else
+            {
+                cout << "\n\t------------WRONG INPUT PLEASE PROVIDE A VALID INPUT--------------\n\n"
+                     << endl;
+            }
+        }
+
+        ///calling constructors of the respectives classes so that the values are stored in the objects
+        Student student(name, address, age, telephone_number, this->customerNumber);
+        Senior senior(name, address, age, telephone_number, this->customerNumber);
+        Adult adult(name, address, age, telephone_number, this->customerNumber);
+        
+        ///incrementing customer number since an account has been added, so customer has increased
+        this->customerNumber++;
+        
+        ///incrementing account number since an account has been added, so account number has increased
+        this->account_number++;
+        
+        ///storing data received of type of account
+        accountTypes[this->account_number] = accountType;
+        
+        ///creating an object of Savings_Account, if saving account is chosen
+        Savings_Account savingAccount;
+        int sIndex = 0;
+
+        ///creating an object of Checking_account, if saving account is chosen
+        Checking_Account checkingAccount;
+        int cIndex = 0;
+
+        /// To determine the type of account chosen: Savings or Checkings
+        switch (accountType)
+        {
+            ///If savings account is selected, set an account number
+        case 1:
+            savingAccount.setAccountNumber(account_number);
+
+            /// To determine the type of customer chosen: Senior, Adult, Student
+            switch (customerType)
+            {
+            case 1:
+                ///If in savings account: Senior account is selected, set customer type Senior in Savings Account
+                savingAccount.setSenior(senior);
+                break;
+            case 2:
+                ///If in savings account: Adult account is selected, set customer type Adult in Savings Account
+                savingAccount.setAdult(adult);
+                break;
+            case 3:
+                ///If in savings account: Student account is selected, set customer type Student in Savings Account
+                savingAccount.setStudent(student);
+                break;
+            }
+            ///store the amount balance in Savings Account
+            savingAccount.set_balance(balance);
+
+            ///store the customer type in Savings Account
+            savingAccount.set_customer(customerType);
+            savingAccounts[sIndex++] = savingAccount;
+            break;
+
+        case 2:
+            ///If checkings account is selected, set an account number
+            checkingAccount.setAccountNumber(account_number);
+            switch (customerType)
+            {
+            ///If in checkings account: Senior account is selected, set customer type Senior in checkings Account
+            case 1:
+                checkingAccount.setSenior(senior);
+                break;
+            ///If in checkings account: Adult account is selected, set customer type Adult in checkings Account
+            case 2:
+                checkingAccount.setAdult(adult);
+                break;
+            ///If in checkings account: Student account is selected, set customer type Student in checkings Account
+            case 3:
+                checkingAccount.setStudent(student);
+                break;
+            }
+
+            ///store the amount balance in Savings Account
+            checkingAccount.set_balance(balance);
+            checkingAccount.set_customer(customerType);
+            checkingAccounts[cIndex++] = checkingAccount;
+            break;
+        default:
+            cout << "\tPlease choose a desired option" << endl;
+        }
+        cout << "\tAccount Added  : " << this->account_number << "\n\n";
+    }
+
+
+
+
+
+
 
 /********MAIN MAIN MAIN***************/
 
