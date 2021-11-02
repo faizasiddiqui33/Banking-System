@@ -514,6 +514,22 @@ public:
     /// Customer Type Defines what type of customner is passed i.e Senoir , Adult or Student
     int customerType; 
 
+/*****************************************************************************************************************************
+    Module Name: Setter Function for setting Customer's Name
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: Setting Class Members:
+    Description: Set customer's name to the current value in pointer object (if not initialized by Constructor)
+    @param name: for passing customer's name as string data type
+    @return null
+*****************************************************************************************************************************/
+    void createAccount(int account_number, double balance, Customer customer)
+    {
+        this->account_number = account_number;
+        this->balance = balance;
+        this->customer = customer;
+    }
+
 
 
 
