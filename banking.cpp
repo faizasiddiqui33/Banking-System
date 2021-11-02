@@ -965,6 +965,33 @@ public:
     }
 
 
+/*****************************************************************************************************************************
+    Module Name: Add Interest Function
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: To add interest amount from Savings Account
+    Description: Adds Interest amount in Savings Account
+        @param rate: for passing interest rate as we need to add interest as float data type
+        @param timeperiod: for duration to check how much interest should be added monthly
+        @param date: for date of adding interest to be stored with every transaction
+        @return null
+*****************************************************************************************************************************/
+    void add_interest(float rate, int timeperiod, string date)
+    {
+        ///Calculating Monthly Interest which is Principal Amount * Time * Rate
+        double interestAmount = this->balance * timeperiod * rate;
+        
+        ///add interest amount to current balance
+        this->balance = this->balance + interestAmount;
+        Transaction transaction;
+        
+        ///store the changes by calling process transaction function
+        transaction.processTransactio(
+            "INT CR", interestAmount, date, 0, this->balance);
+         ///save the changes in transactions
+        this->setTransactions(transaction);
+    }
+};
 
 
 
