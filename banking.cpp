@@ -216,6 +216,25 @@ Description: Gets Customer's Telephone Number / Returns Customer's Telephone Num
     }
 
 
+/*****************************************************************************************************************************
+Module Name: Accessor(Getter) Function for getting Customer's Type Number
+Author: Faiza Fatma Siddiqui
+Date Created/Modified: 01.11.2021
+Purpose: For getting Customer's Type Number
+Description: Gets Customer's Type Number / Returns Customer's Type Number when the function is called
+    @param: None
+    @return Customer's Type Number of string data type is returned
+*****************************************************************************************************************************/
+    int getCustomerNumber()
+    {
+        ///returns the pointer value of current object that is Customer's Type Number of integer data type
+        return this->customer_number;
+    }
+};
+
+
+
+
 /********MAIN MAIN MAIN***************/
 
 /*****************************************************************************************************************************
