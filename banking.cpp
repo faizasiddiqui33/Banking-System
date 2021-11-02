@@ -725,6 +725,25 @@ public:
     }
 
 
+/*****************************************************************************************************************************
+    Module Name: Getter Function for getting Transaction Details
+    Author: Faiza Fatma Siddiqui
+    Date Created/Modified: 01.11.2021
+    Purpose: For getting Transaction Details and printing them
+    Description: Gets or Returns Transaction Type, Transaction Date, Transaction Amount, Account Balance when the function is called
+        @param: None
+        @return null
+*****************************************************************************************************************************/
+    void getTransactionDetails()
+    {
+        cout << "\n";
+        ///Traversing the transaction array to print from first to last transactions
+        for (int i = 0; i < this->transactionIndex; i++)
+        {
+            cout << "\t\t" << transactions[i].transaction_type << "\t" << transactions[i].date << "\t$" << transactions[i].amount << "\t$" << transactions[i].balance << endl;
+        }
+    }
+
 
 
 
